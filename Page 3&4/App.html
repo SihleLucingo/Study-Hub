@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Hub Timetable Generator</title>
+    
+</head>
+<body>
+    <!-- Page 1: Form -->
+    <div id="form-page" class="container">
+        <div class="header">
+            <img src="C:\Users\Hi-Fi\Pictures/studyhubLogo.png" width="150px" height="150px">
+            <h1>Study Hub Timetable Generator</h1>
+            <p class="subtitle">Create your personalized study schedule based on your subjects, difficulty levels, and preferences</p>
+        </div>
+
+        <div class="form-section">
+            <h2 class="section-title">Your Study Preferences</h2>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label>📅 Available Study Days</label>
+                    <select>
+                        <option>7 days (Full week)</option>
+                        <option>5 days (Weekdays only)</option>
+                        <option>6 days (No Sunday)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>⏰ Daily Study Hours</label>
+                    <select>
+                        <option>4 hrs</option>
+                        <option>2 hrs</option>
+                        <option>3 hrs</option>
+                        <option>5 hrs</option>
+                        <option>6 hrs</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>🎯 Preferred Focus Time</label>
+                    <select>
+                        <option>Morning (Most focused)</option>
+                        <option>Afternoon</option>
+                        <option>Evening</option>
+                        <option>Night</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section subjects-section">
+            <h3>Your Subjects & Difficulty</h3>
+            
+            <div class="subject-row">
+                <input type="text" placeholder="Networks 511" value="Networks 511">
+                <button class="difficulty-btn hard">Hard</button>
+            </div>
+            
+            <div class="subject-row">
+                <input type="text" placeholder="Programming 622" value="Programming 622">
+                <button class="difficulty-btn medium">Medium</button>
+            </div>
+            
+            <div class="subject-row">
+                <input type="text" placeholder="Cloud Computing" value="Cloud Computing">
+                <button class="difficulty-btn hard">Hard</button>
+            </div>
+            
+            <button class="add-subject-btn">+ Add Subject</button>
+        </div>
+
+        <div class="form-section preferences-section">
+            <h3>Additional Preferences</h3>
+            <textarea class="preferences-textarea" placeholder="I need more time for Network 511">I need more time for Network 511</textarea>
+        </div>
+
+        <button class="generate-btn" onclick="showTimetable()">Generate Timetable</button>
+    </div>
+
+    <!-- Page 2: Timetable -->
+    <div id="timetable-page" class="timetable-page container">
+        <div class="timetable-header">
+            <h1 class="timetable-title">Your Personalized Study Timetable</h1>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">28</div>
+                    <div class="stat-label">Weekly Hours</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Hard Subjects</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">42</div>
+                    <div class="stat-label">Study Sessions</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week-grid">
+            <div class="day-card">
+                <div class="day-header">Monday</div>
+                <div class="day-content">
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Networks 511</div>
+                            <div class="session-time">8:00 AM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Cloud Computing</div>
+                            <div class="session-time">10:00 AM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Programming</div>
+                            <div class="session-time">3:00 PM</div>
+                        </div>
+                        <div class="difficulty-tag med">Med</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Networks 511</div>
+                            <div class="session-time">6:00 PM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">Tuesday</div>
+                <div class="day-content">
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Networks 511</div>
+                            <div class="session-time">8:00 AM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Cloud Computing</div>
+                            <div class="session-time">10:00 AM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Programming</div>
+                            <div class="session-time">3:00 PM</div>
+                        </div>
+                        <div class="difficulty-tag med">Med</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Networks 511</div>
+                            <div class="session-time">6:00 PM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">Wednesday</div>
+                <div class="day-content">
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Networks 511</div>
+                            <div class="session-time">8:00 AM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Cloud Computing</div>
+                            <div class="session-time">10:00 AM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Programming</div>
+                            <div class="session-time">3:00 PM</div>
+                        </div>
+                        <div class="difficulty-tag med">Med</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Networks 511</div>
+                            <div class="session-time">6:00 PM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">Thursday</div>
+                <div class="day-content">
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Networks 511</div>
+                            <div class="session-time">8:00 AM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Cloud Computing</div>
+                            <div class="session-time">10:00 AM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Programming</div>
+                            <div class="session-time">3:00 PM</div>
+                        </div>
+                        <div class="difficulty-tag med">Med</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">Friday</div>
+                <div class="day-content">
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Networks 511</div>
+                            <div class="session-time">8:00 AM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Cloud Computing</div>
+                            <div class="session-time">10:00 AM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Programming</div>
+                            <div class="session-time">3:00 PM</div>
+                        </div>
+                        <div class="difficulty-tag med">Med</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Networks 511</div>
+                            <div class="session-time">6:00 PM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">Saturday</div>
+                <div class="day-content">
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Networks 511</div>
+                            <div class="session-time">8:00 AM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Cloud Computing</div>
+                            <div class="session-time">10:00 AM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Programming</div>
+                            <div class="session-time">3:00 PM</div>
+                        </div>
+                        <div class="difficulty-tag med">Med</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Networks 511</div>
+                            <div class="session-time">6:00 PM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">Sunday</div>
+                <div class="day-content">
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Networks 511</div>
+                            <div class="session-time">8:00 AM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Cloud Computing</div>
+                            <div class="session-time">10:00 AM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Programming</div>
+                            <div class="session-time">3:00 PM</div>
+                        </div>
+                        <div class="difficulty-tag med">Med</div>
+                    </div>
+                    <div class="session">
+                        <div class="session-info">
+                            <div class="session-subject">Networks 511</div>
+                            <div class="session-time">6:00 PM</div>
+                        </div>
+                        <div class="difficulty-tag hard">Hard</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="recommendations">
+            <h3>Study Recommendations</h3>
+            <ul>
+                <li>Focus on <strong>Networks511</strong> during your peak focus times (mornings)</li>
+                <li>Group similar subjects together to improve retention</li>
+                <li>Take a 5-10 minute break every 45-60 minutes of studying</li>
+                <li>Review difficult topics at the beginning of your study sessions</li>
+            </ul>
+        </div>
+    </div>
+	
+    <script>
+        function showTimetable() {
+            document.getElementById('form-page').style.display = 'none';
+            document.getElementById('timetable-page').style.display = 'block';
+        }
+
+        // Handle difficulty button clicks
+        document.querySelectorAll('.difficulty-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from siblings
+                const parent = this.parentElement;
+                parent.querySelectorAll('.difficulty-btn').forEach(b => {
+                    b.classList.remove('hard', 'medium');
+                    b.textContent = 'Select';
+                });
+                
+                // Set this button as active
+                if (this.textContent === 'Hard' || this.textContent === 'Select') {
+                    this.classList.add('hard');
+                    this.textContent = 'Hard';
+                } else if (this.textContent === 'Medium') {
+                    this.classList.add('medium');
+                    this.textContent = 'Medium';
+                }
+            });
+        });
+
+        // Add subject functionality
+        document.querySelector('.add-subject-btn').addEventListener('click', function() {
+            const subjectsSection = document.querySelector('.subjects-section');
+            const newRow = document.createElement('div');
+            newRow.className = 'subject-row';
+            newRow.innerHTML = `
+                <input type="text" placeholder="Enter subject name">
+                <button class="difficulty-btn">Select</button>
+            `;
+            
+            subjectsSection.insertBefore(newRow, this);
+            
+            // Add event listener to the new difficulty button
+            const newBtn = newRow.querySelector('.difficulty-btn');
+            newBtn.addEventListener('click', function() {
+                if (this.textContent === 'Select') {
+                    this.classList.add('medium');
+                    this.textContent = 'Medium';
+                } else if (this.textContent === 'Medium') {
+                    this.classList.remove('medium');
+                    this.classList.add('hard');
+                    this.textContent = 'Hard';
+                } else {
+                    this.classList.remove('hard');
+                    this.textContent = 'Select';
+                }
+            });
+        });
+    </script>
+	
+</body>
+</html>
